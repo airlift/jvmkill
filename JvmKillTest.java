@@ -20,7 +20,7 @@ public final class JvmKillTest
     public static void main(String[] args)
             throws Exception
     {
-        System.out.println("triggering OutOfMemmory...");
+        System.out.println("triggering OutOfMemory...");
         List<Object> list = new ArrayList<>();
         try {
             while (true) {
