@@ -28,7 +28,8 @@ resourceExhausted(
       const void *reserved,
       const char *description)
 {
-   fprintf(stderr, "ResourceExhausted: killing current process!\n");
+   fprintf(stderr,
+      "ResourceExhausted: %s: killing current process!\n", description);
    kill(getpid(), SIGKILL);
 }
 
