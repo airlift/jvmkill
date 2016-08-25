@@ -13,6 +13,9 @@ all:
 	gcc $(CFLAGS) -o $(TARGET) jvmkill.c
 	chmod 644 $(TARGET)
 
+install: all
+	install -m 755 $(TARGET) /usr/local/lib
+
 clean:
 	rm -f $(TARGET)
 	rm -f *.class
