@@ -31,3 +31,7 @@ Run Java with the agent added as a JVM argument:
 
 Alternatively, if modifying the Java command line is not possible, the
 above may be added to the `JAVA_TOOL_OPTIONS` environment variable.
+
+## Using inside Docker containers
+
+JVM processes running inside docker containers will use a special process ID:1 and ignore SIGKILL signall by default. To make jvmkill work, docker containers need to start with `docker run --init` option (This option is available since Docker 1.13 or later) to properly kill the JVM processes.
