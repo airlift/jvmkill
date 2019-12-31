@@ -6,6 +6,7 @@ INCLUDE= -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/linux"
 CFLAGS=-Wall -Werror -fPIC -shared $(INCLUDE)
 
 TARGET=libjvmkill.so
+INSTALL_PATH:=/usr/local/lib
 
 .PHONY: all clean test
 
@@ -14,7 +15,7 @@ all:
 	chmod 644 $(TARGET)
 
 install: all
-	install -m 755 $(TARGET) /usr/local/lib
+	install -m 755 $(TARGET) $(INSTALL_PATH)
 
 clean:
 	rm -f $(TARGET)
