@@ -2,7 +2,11 @@ ifndef JAVA_HOME
     $(error JAVA_HOME not set)
 endif
 
+ifeq ($(shell uname),Darwin)
+INCLUDE= -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/darwin"
+else
 INCLUDE= -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/linux"
+endif
 CFLAGS=-Wall -Werror -fPIC -shared $(INCLUDE)
 
 TARGET=libjvmkill.so
