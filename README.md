@@ -36,5 +36,5 @@ For older JVMs, a common alternative to this agent is to use the
 `-XX:OnOutOfMemoryError` JVM argument to execute a `kill -9` command.
 Unfortunately, the JVM uses the `fork()` system call to execute the kill
 command and that system call can fail for large JVMs due to memory
-overcommit limits in the operating system.  This is the problem that
-motivated the development of this agent.
+overcommit limits in the operating system. Additionally, this option only
+triggers for out of memory, not thread creation failure.
