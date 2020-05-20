@@ -1,3 +1,5 @@
 *.so
 *.class
 *.hprof
+build
+*~
