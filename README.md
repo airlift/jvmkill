@@ -25,13 +25,6 @@ Run Java with the agent added as a JVM argument:
 Alternatively, if modifying the Java command line is not possible, the
 above may be added to the `JAVA_TOOL_OPTIONS` environment variable.
 
-## Using inside Docker containers
-
-JVM processes running inside Docker containers use the special
-process ID 1 and ignore the `SIGKILL` signal by default. To make
-this agent work, Docker containers need to be started using the
-`docker run --init` option to properly kill the JVM process.
-
 # Alternatives
 
 Newer JVMs (8u92+) support the `-XX:ExitOnOutOfMemoryError` option to

@@ -31,6 +31,7 @@ resourceExhausted(
    fprintf(stderr,
       "ResourceExhausted: %s: killing current process!\n", description);
    kill(getpid(), SIGKILL);
+   _exit(1);
 }
 
 JNIEXPORT jint JNICALL
