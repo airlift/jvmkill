@@ -11,27 +11,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import java.util.ArrayList;
-import java.util.List;
-
 public final class JvmKillTest
 {
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args)
-            throws Exception
     {
-        System.out.println("triggering OutOfMemory...");
-        List<Object> list = new ArrayList<>();
-        try {
-            while (true) {
-                byte[] bytes = new byte[1024 * 1024 * 1024];
-                list.add(bytes);
-                System.out.println("list size: " + list.size());
-            }
+        System.out.println("triggering thread exhaustion...");
+        int count = 0;
+        while (true) {
+            Thread thread = new Thread(() -> {});
+            thread.start();
+            count++;
+            System.out.println("threads: " + count);
         }
-        catch (Throwable t) {
-            System.out.println(t.toString());
-        }
-        System.out.println("final list size: " + list.size());
     }
 }
