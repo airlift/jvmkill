@@ -24,8 +24,6 @@ clean:
 
 test: all
 	$(JAVA_HOME)/bin/javac JvmKillTest.java
-	$(JAVA_HOME)/bin/java -Xmx8m \
-	    -XX:+HeapDumpOnOutOfMemoryError \
-	    -XX:OnOutOfMemoryError='/bin/echo hello' \
+	$(JAVA_HOME)/bin/java -Xss512m \
 	    -agentpath:$(PWD)/$(TARGET) \
 	    -cp $(PWD) JvmKillTest
